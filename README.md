@@ -70,27 +70,45 @@ npm run dev
 #### Получение всех категорий
 
 ```bash
-curl -X GET http://localhost:3333/categories/all
+axios.get('http://localhost:3333/categories/all')
+  .then(response => {
+    console.log(response.data);
+  })
+  .catch(error => {
+    console.error(error);
+  });
 ```
 
 #### Оформление заказа
 
 ```bash
-curl -X POST http://localhost:3333/order/send -H "Content-Type: application/json" -d '{
-  "name": "John Doe",
-  "phone": "1234567890",
-  "email": "johndoe@example.com",
-  "products": [
+const orderData = {
+  name: "John Doe",
+  phone: "1234567890",
+  email: "johndoe@example.com",
+  products: [
     {
-      "id": 1,
-      "quantity": 2
+      id: 1,
+      quantity: 2
     },
     {
-      "id": 2,
-      "quantity": 1
+      id: 2,
+      quantity: 1
     }
   ]
-}'
+};
+
+axios.post('http://localhost:3333/order/send', orderData, {
+  headers: {
+    'Content-Type': 'application/json'
+  }
+})
+  .then(response => {
+    console.log(response.data);
+  })
+  .catch(error => {
+    console.error(error);
+  });
 ```
 
 ## Используемые технологии

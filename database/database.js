@@ -1,8 +1,10 @@
-const { Sequelize } = require('sequelize');
+// в ./database/database.js
+const storage = process.env.SQLITE_PATH
+  || (process.env.VERCEL ? ':memory:' : 'database.sqlite');
 
 const sequelize = new Sequelize({
   dialect: 'sqlite',
-  storage: './database.sqlite'
+  storage,
+  logging: false
 });
 
-module.exports = sequelize;

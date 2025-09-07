@@ -1,18 +1,13 @@
-const { request } = require('express');
 const express = require('express');
-
 const router = express.Router();
 
-
-router.get('/send', (req, res) =>{
-    res.json({});
-
-})
-
-router.post('/send', (req, res) => {
-    
-    res.json({status: 'OK', message: 'request processed'})
-})
-
+router.post('/send', async (req, res, next) => {
+  try {
+    // твоя логика (валидация, сохранение, отправка письма и т.д.)
+    res.json({ status: 'OK' });
+  } catch (err) {
+    next(err);
+  }
+});
 
 module.exports = router;

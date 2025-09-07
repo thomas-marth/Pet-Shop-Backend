@@ -1,12 +1,12 @@
+// database/database.js
 const { Sequelize } = require('sequelize');
 
 const isProd = !!process.env.VERCEL;
-const pooledUrl = process.env.DATABASE_URL || process.env.POSTGRES_URL;
+const pooledUrl = process.env.DATABASE_URL || process.env.POSTGRES_URL; // pooled URL от Vercel/Neon
 
 let sequelize;
 
 if (isProd) {
-  // Vercel/Neon: pooled URL + SSL
   sequelize = new Sequelize(pooledUrl, {
     dialect: 'postgres',
     protocol: 'postgres',
@@ -15,7 +15,7 @@ if (isProd) {
     logging: false
   });
 } else {
-  // Локально оставляем SQLite
+  // локально можно продолжать с SQLite
   sequelize = new Sequelize({
     dialect: 'sqlite',
     storage: 'database.sqlite',

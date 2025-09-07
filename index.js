@@ -1,6 +1,12 @@
 const express = require('express');
+
+let sequelize; // будет создан при первом обращении
+function getSequelize() {
+  if (!sequelize) sequelize = require('./database/database');
+  return sequelize;
+}
+
 const cors = require('cors');
-const sequelize = require('./database/database');
 
 const app = express();
 console.log('[BOOT]', { vercel: !!process.env.VERCEL, nodeEnv: process.env.NODE_ENV });
@@ -25,8 +31,8 @@ app.get('/health', (req, res) => res.json({ ok: true, ts: Date.now() }));
 
 app.get('/__db', async (req, res) => {
   try {
-    await sequelize.authenticate();
-    res.json({ ok: true, dialect: sequelize.getDialect(), env: process.env.VERCEL ? 'vercel' : 'local' });
+    await getSequelize().authenticate();
+    res.json({ ok: true, dialect: getSequelize().getDialect(), env: process.env.VERCEL ? 'vercel' : 'local' });
   } catch (err) {
     console.error('[DB_AUTH_ERROR]', err);
     res.status(500).json({ ok: false, name: err.name, message: err.message });
@@ -50,7 +56,7 @@ function initModelsOnce() {
 function ensureDb() {
   if (!dbInitPromise) {
     initModelsOnce();
-    dbInitPromise = sequelize.sync(); // без force в проде (Postgres постоянный)
+    dbInitPromise = getSequelize().sync(); // без force в проде (Postgres постоянный)
   }
   return dbInitPromise;
 }

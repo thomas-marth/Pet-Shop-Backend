@@ -50,6 +50,40 @@ app.get('/', (_, res) => {
 });
 app.get('/health', (req, res) => res.json({ ok: true, ts: Date.now() }));
 
+// 1) Мини-паспорт окружения (без секретов)
+app.get('/__env', (req, res) => {
+  res.json({
+    vercel: !!process.env.VERCEL,
+    has_POSTGRES_URL: !!process.env.POSTGRES_URL,
+    has_DATABASE_URL: !!process.env.DATABASE_URL
+  });
+});
+
+// 2) Проверка подключения к БД
+app.get('/__db', async (req, res) => {
+  try {
+    await sequelize.authenticate();
+    res.json({
+      ok: true,
+      dialect: sequelize.getDialect(),
+      env: process.env.VERCEL ? 'vercel' : 'local'
+    });
+  } catch (err) {
+    console.error('[DB_AUTH_ERROR]', err);
+    res.status(500).json({ ok: false, name: err.name, message: err.message });
+  }
+});
+
+// 3) Разовая миграция схемы (создаёт таблицы из моделей)
+app.post('/__migrate', async (req, res, next) => {
+  try {
+    await sequelize.sync({ alter: true });
+    res.json({ ok: true, migrated: true });
+  } catch (e) {
+    next(e);
+  }
+});
+
 // Проверка подключения к БД и диалекта
 app.get('/_db', async (req, res) => {
   try {

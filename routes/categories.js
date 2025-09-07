@@ -1,40 +1,44 @@
+const express = require('express');
 const Category = require('../database/models/category');
 const Product = require('../database/models/product');
 
-const { request } = require('express');
-const express = require('express');
-
 const router = express.Router();
 
+// GET /categories/all
+router.get('/all', async (req, res, next) => {
+  try {
+    const rows = await Category.findAll();
+    res.json(rows);
+  } catch (err) {
+    next(err);
+  }
+});
 
-router.get('/all', (req, res) =>{
-    
-    async function all(){
-        const all = await Category.findAll();
-        res.json(all);
+// GET /categories/:id
+router.get('/:id', async (req, res, next) => {
+  try {
+    const id = Number(req.params.id);
+    if (!Number.isFinite(id)) {
+      return res.status(400).json({ status: 'ERR', message: 'wrong id' });
     }
-    all();
-})
 
-router.get('/:id', async (req, res) =>{
-    const {id} = req.params;
+    const [items, category] = await Promise.all([
+      Product.findAll({ where: { categoryId: id } }),
+      Category.findOne({ where: { id } })
+    ]);
 
-    if (isNaN(id)){
-        res.json({status: 'ERR', message: 'wrong id'}); 
-        return  
+    if (!category) {
+      return res.status(404).json({ status: 'ERR', message: 'category not found' });
     }
-    const all = await Product.findAll({where: {categoryId: +id}});
-    const category = await Category.findOne({where: {id: +id}});
 
-    if(all.length === 0){
-        res.json({status: 'ERR', message: 'empty category'});
-        return
+    if (items.length === 0) {
+      return res.status(404).json({ status: 'ERR', message: 'empty category' });
     }
-    
-    res.json({
-        category,
-        data: all
-    });
-})
+
+    res.json({ category, data: items });
+  } catch (err) {
+    next(err);
+  }
+});
 
 module.exports = router;

@@ -4,7 +4,10 @@ const Product = require('../database/models/product');
 
 const router = express.Router();
 
-// GET /categories/all
+/**
+ * GET /categories/all
+ * Возвращает список всех категорий
+ */
 router.get('/all', async (req, res, next) => {
   try {
     const rows = await Category.findAll();
@@ -14,7 +17,10 @@ router.get('/all', async (req, res, next) => {
   }
 });
 
-// GET /categories/:id
+/**
+ * GET /categories/:id
+ * Возвращает категорию и товары этой категории
+ */
 router.get('/:id', async (req, res, next) => {
   try {
     const id = Number(req.params.id);
@@ -22,15 +28,18 @@ router.get('/:id', async (req, res, next) => {
       return res.status(400).json({ status: 'ERR', message: 'wrong id' });
     }
 
-    const [items, category] = await Promise.all([
-      Product.findAll({ where: { categoryId: id } }),
-      Category.findOne({ where: { id } })
+    // Получаем категорию и товары параллельно
+    const [category, items] = await Promise.all([
+      Category.findOne({ where: { id } }),
+      Product.findAll({ where: { categoryId: id } })
     ]);
 
     if (!category) {
       return res.status(404).json({ status: 'ERR', message: 'category not found' });
     }
+
     if (items.length === 0) {
+      // категория есть, но товаров нет — это не ошибка сервера
       return res.status(404).json({ status: 'ERR', message: 'empty category' });
     }
 
@@ -41,5 +50,6 @@ router.get('/:id', async (req, res, next) => {
 });
 
 module.exports = router;
+
 
 

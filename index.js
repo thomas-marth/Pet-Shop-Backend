@@ -24,21 +24,17 @@ app.use(express.static('public'));
 Category.hasMany(Product, { foreignKey: 'categoryId' });
 Product.belongsTo(Category, { foreignKey: 'categoryId' });
 
-// --- "ленивая" инициализация БД (один раз на холодный старт) ---
+// один раз синкаем БД при холодном старте
 let dbInitPromise;
 function ensureDb() {
   if (!dbInitPromise) {
-    dbInitPromise = sequelize.sync(); // при необходимости: { alter: true }
+    const syncOpts = process.env.VERCEL ? { force: true } : {};
+    dbInitPromise = sequelize.sync(syncOpts);
   }
   return dbInitPromise;
 }
 app.use(async (req, res, next) => {
-  try {
-    await ensureDb();
-    next();
-  } catch (e) {
-    next(e);
-  }
+  try { await ensureDb(); next(); } catch (e) { next(e); }
 });
 
 // --- роуты ---
@@ -47,56 +43,25 @@ app.use('/products', products);
 app.use('/sale', sale);
 app.use('/order', order);
 
-// Корневой маршрут
+// корень и health
 app.get('/', (_, res) => {
-  res.json({
-    ok: true,
-    routes: [
-      '/categories/all',
-      '/products/all',
-      '/products/:id',
-      '/order/send',
-      '/sale/send',
-      '/health'
-    ]
-  });
+  res.json({ ok: true, routes: [
+    '/categories/all','/products/all','/products/:id','/order/send','/sale/send','/health'
+  ]});
 });
+app.get('/health', (req, res) => res.json({ ok: true, ts: Date.now() }));
 
-// Health-check
-app.get('/health', (req, res) => {
-  res.json({ ok: true, ts: Date.now() });
-});
-
-// Быстрый дебаг БД: проверяем драйвер и коннект
-app.get('/_debug', async (req, res, next) => {
-  try {
-    const { Sequelize } = require('sequelize');
-    const sequelize = require('./database/database');
-
-    await sequelize.authenticate(); // проверка наличия драйвера + коннекта
-    res.json({ ok: true, message: 'Sequelize authenticate() passed' });
-  } catch (err) {
-    console.error('[DEBUG_DB_ERROR]', err);
-    res.status(500).json({
-      ok: false,
-      name: err.name,
-      message: err.message
-    });
-  }
-});
-
-// Глобальный обработчик ошибок (важно для serverless)
+// глобальный обработчик ошибок (чтобы 500 были в JSON и в логах)
 app.use((err, req, res, next) => {
   console.error('[ERROR]', err);
   res.status(500).json({ ok: false, error: err?.message || 'Server error' });
 });
 
-// Локальный запуск (dev). В проде (Vercel) ПОРТ НЕ СЛУШАЕМ!
+// локальный запуск только в dev
 if (process.env.NODE_ENV !== 'production') {
   const PORT = process.env.PORT || 3333;
   app.listen(PORT, () => console.log(`Local server on ${PORT}`));
 }
 
-// Экспорт для Vercel (@vercel/node)
 module.exports = app;
 

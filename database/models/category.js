@@ -7,7 +7,13 @@ const Category = sequelize.define('Category', {
   image: DataTypes.TEXT,
   createdAt: DataTypes.DATE,
   updatedAt: DataTypes.DATE
-}, { tableName: 'categories', timestamps: true });
+}, {
+  tableName: 'categories',
+  timestamps: true,
+  defaultScope: {
+    order: [['id', 'ASC']]     // ← теперь любой findAll() сортирует по id
+  }
+});
 
 module.exports = Category;
 

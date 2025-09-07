@@ -1,0 +1,337 @@
+{
+"categories": [
+{
+"id": 1,
+"title": "Dry & Wet Food",
+"image": "/category_img/1.jpeg",
+"createdAt": "2022-10-02T14:43:29.000Z",
+"updatedAt": "2022-10-02T14:43:29.000Z"
+},
+{
+"id": 2,
+"title": "Litter Boxes & Litter Trays",
+"image": "/category_img/2.jpeg",
+"createdAt": "2022-10-02T14:43:29.000Z",
+"updatedAt": "2022-10-02T14:43:29.000Z"
+},
+{
+"id": 3,
+"title": "Baskets & Beds",
+"image": "/category_img/3.jpeg",
+"createdAt": "2022-10-02T14:43:29.000Z",
+"updatedAt": "2022-10-02T14:43:29.000Z"
+},
+{
+"id": 4,
+"title": "Toys",
+"image": "/category_img/4.jpeg",
+"createdAt": "2022-10-02T14:43:29.000Z",
+"updatedAt": "2022-10-02T14:43:29.000Z"
+},
+{
+"id": 5,
+"title": "Care & Grooming",
+"image": "/category_img/5.jpeg",
+"createdAt": "2022-10-02T14:43:29.000Z",
+"updatedAt": "2022-10-02T14:43:29.000Z"
+},
+{
+"id": 6,
+"title": "Snacks & Supplements",
+"image": "/category_img/6.jpeg",
+"createdAt": "2022-10-02T14:43:29.000Z",
+"updatedAt": "2022-10-02T14:43:29.000Z"
+},
+{
+"id": 7,
+"title": "Runs & Fencing",
+"image": "/category_img/7.jpeg",
+"createdAt": "2022-10-02T14:43:29.000Z",
+"updatedAt": "2022-10-02T14:43:29.000Z"
+},
+{
+"id": 8,
+"title": "Trees & Scratching",
+"image": "/category_img/8.jpeg",
+"createdAt": "2022-10-02T14:43:29.000Z",
+"updatedAt": "2022-10-02T14:43:29.000Z"
+}
+], 
+"products": [
+{
+"id": 1,
+"title": "BELCANDO Mini Dog Food",
+"price": 35,
+"discont_price": 23,
+"description": "Versatile selection: discover the culinary world for your little four-legged friend with 2 types of dry food and 6 types of wet food. So there is something for every taste. High acceptance: our balanced formula is rich in essential nutrients, vitamins and minerals and is tailored to the needs of small dog breeds. An all-round supply that leaves nothing to be desired. Dry food: Finest GF Lamb - easily digestible and a croquette coated with instant sauce for extra taste. Finest Croc - rich in meat and with grape seed flour. Wet food: you will receive a selection of different types of wet food from our range: single protein chicken, single protein buffalo, duck with rice and cranberries, rabbit with millet and sweet potato, lamb with rice and tomatoes and chicken/duck with millet and potatoes. Made in Germany: Our feed is manufactured under the strictest quality standards in Germany and contains no artificial additives. All meat products used come from food-safe animals.",
+"image": "/product_img/1.jpeg",
+"createdAt": "2022-10-02T14:43:29.000Z",
+"updatedAt": "2022-10-02T14:43:29.000Z",
+"categoryId": 1
+},
+{
+"id": 2,
+"title": "GranataPet Mini Royal Poultry, Dry Food for Dogs",
+"price": 26,
+"discont_price": 15,
+"description": "Really delicious: The dry dog food for small breeds up to 10 kg allows a natural diet of your four-legged friend, is completely tailored to his needs, grain-free and made without artificial additives. Only the best ingredients: the food with high-quality muscle meat and offal is easy to digest and provides your fur nose with valuable oils, important vitamins, nutrients and essential fatty acids. Enjoy grain-free: the dry food is a complete food for small dog breeds and does not use grains, sugar additives, artificial colours, flavours and preservatives in all varieties. The plus of nature: the dry food is rich in natural vitamins, nutrients and antioxidants thanks to green-lipped mussel and pomegranate seeds that can support the heart, circulation, cells and immune system.",
+"image": "/product_img/2.jpeg",
+"createdAt": "2022-10-02T14:43:29.000Z",
+"updatedAt": "2022-10-02T14:43:29.000Z",
+"categoryId": 1
+},
+{
+"id": 3,
+"title": "animonda Carny Dry Cat Food for Adult Cats",
+"price": 14,
+"discont_price": 9,
+"description": "Premium: 100% fresh, meaty ingredients and offal from the country provide the best proteins and ensure a very special taste experience with this cat food. For adult cats: Carny Adult stands for a balanced, delicious and healthy diet and provides adult cats aged 1-6 years with all the vital nutrients and an extra dose of taurine. Natural: Of course, the wet cat food contains exclusively fresh meat ingredients, no flavour enhancers and neither cereals, sugar and soy, nor dyes and preservatives",
+"image": "/product_img/3.jpeg",
+"createdAt": "2022-10-02T14:43:29.000Z",
+"updatedAt": "2022-10-02T14:43:29.000Z",
+"categoryId": 1
+},
+{
+"id": 4,
+"title": "Dehner Wild Nature Wet Dog Food",
+"price": 20,
+"discont_price": null,
+"description": "Grain-free premium dog food with wild boar - adult. Original, species-appropriate, 100% natural composition. With 70% animal protein, 30% plant ingredients. High meat content as well as vegetables, fruit, herbs and berries. Free from chemical additives, no sugar or soy.",
+"image": "/product_img/4.jpeg",
+"createdAt": "2022-10-02T14:43:29.000Z",
+"updatedAt": "2022-10-02T14:43:29.000Z",
+"categoryId": 1
+},
+{
+"id": 5,
+"title": "PERFECT FIT Adult Dry Food for Adults",
+"price": 28,
+"discont_price": null,
+"description": "HEALTHY SKIN & HEALTHY COAT: Contains zinc to support healthy skin and coat. Enriched with Taurine Vitamin E and Vitamin C, which are known to support the natural defences. Made with high quality proteins and yeast, a natural source of prebiotics to support healthy digestion. HEALTHY URINARY TRACT A controlled mineral content helps maintain the lower urinary tract healthy. With tailored protein and energy content to support optimal weight control and physical condition",
+"image": "/product_img/5.jpeg",
+"createdAt": "2022-10-02T14:43:29.000Z",
+"updatedAt": "2022-10-02T14:43:29.000Z",
+"categoryId": 1
+},
+{
+"id": 6,
+"title": "MERA Pure Sensitive Turkey, Wet Dog Food",
+"price": 35,
+"discont_price": null,
+"description": "Just right: the wet food pure sensitive with turkey is particularly suitable for food-sensitive or sensitive dogs that are prone to intolerances. This means that the food meets particularly high demands. No cereals: according to the single protein concept, the formula contains 100 percent animal protein from turkey - no more and no less. Species-appropriate: with MERA pure sensitive you offer your dog a holistic nutritional concept with the reduction to the essentials to reduce the allergy potential. Let your four-legged friend enjoy the purity of nature",
+"image": "/product_img/6.jpeg",
+"createdAt": "2022-10-02T14:43:29.000Z",
+"updatedAt": "2022-10-02T14:43:29.000Z",
+"categoryId": 1
+},
+{
+"id": 7,
+"title": "Edgard & Cooper Dog Food Wet Godfather Dog Adult",
+"price": 12,
+"discont_price": null,
+"description": "Naturally tasty dog food: with plenty of fresh meat, filled with high quality and tasty protein (no meal, no processed or dried meat), no GMO. We carefully cook the ingredients to preserve their taste and natural nutrients. Suitable for adult neutered or non-neutered dogs of all breeds and sizes. With a grain-free and gluten-free range, our dry food is perfect for sensitive stomachs and contains prebiotics for a healthy intestine.\nFresh Meat Feed This recipe is rich in fresh salmon and turkey from the farm, filled with omega-3 and 6 for a soft, shiny layer and meat for muscle building and preservation. In this recipe, pear, pumpkin, apple and pack deliver fibers, vitamins A, B6, C, E, essential antioxidants, potasium, iron and beta-carotene. Contains glucosamine and chondroitin for strong bones and joints.",
+"image": "/product_img/7.jpeg",
+"createdAt": "2022-10-02T14:43:29.000Z",
+"updatedAt": "2022-10-02T14:43:29.000Z",
+"categoryId": 1
+},
+{
+"id": 8,
+"title": "Royal Canin Veterinary Renal | Twin Pack",
+"price": 40,
+"discont_price": 35,
+"description": "Kidney – Royal Canin Veterinary Renal for cats has a special formula with low phosphorus content. It is a complete diet food for adult cats with kidney problems. Supports kidney function – the RC Veterinary Renal Cat food has a moderate proportion of high-quality proteins that can contribute to the support of kidney function. Quality of life – it can help improve the quality of life of the cat. An adapted energy content can help reduce the amount of food",
+"image": "/product_img/8.jpeg",
+"createdAt": "2022-10-02T14:43:29.000Z",
+"updatedAt": "2022-10-02T14:43:29.000Z",
+"categoryId": 1
+},
+{
+"id": 9,
+"title": "Dry Dog Food for Adult Dogs",
+"price": 100,
+"discont_price": 80,
+"description": "For adult dogs with normal to increased activity (medium to large breeds): complete dry food with high protein content for the special nutritional needs of adult dogs. Balanced protein and fat content to relieve the liver, kidneys and heart, for a healthy and shiny coat. Low raw ash content: light, highly digestible, reduced amount of waste. Ingredients mainly from northern Germany, composition: poultry, lamb egg, rice, without wheat, colourings, flavours or preservatives",
+"image": "/product_img/9.jpeg",
+"createdAt": "2022-10-02T14:43:29.000Z",
+"updatedAt": "2022-10-02T14:43:29.000Z",
+"categoryId": 1
+},
+{
+"id": 10,
+"title": "Feandrea Cat Litter Tray with Lid",
+"price": 45,
+"discont_price": null,
+"description": "Easy to empty and clean: With a pull-out drawer, the cat litter box can be easily emptied and filled with new litter. Included scoop and brush help scoop the waste and clean the litter at the top or in the corners. The grid design at the top reduces trace formation and lets the litter fall back into the box. This reduces trace formation in the house and keeps your home clean. The extended rim above the box and a closed bottom underneath prevent litter or cat urine from getting on the floor. A practical helper if your cat likes to dig or stand to pee!",
+"image": "/product_img/10.jpeg",
+"createdAt": "2022-10-02T14:43:29.000Z",
+"updatedAt": "2022-10-02T14:43:29.000Z",
+"categoryId": 2
+},
+{
+"id": 11,
+"title": "UBPET C20 Selbstreinigende Katzentoilette",
+"price": 400,
+"discont_price": 300,
+"description": "【Grosser Offener Raum】Die automatische Katzentoilette hat einen geräumigen 34,8cm x 32cm offenen Eingang, im Vergleich zu anderen automatischen Katzentoiletten mit engen Eingängen, sind unsere automatische Katzentoiletten mehr auf die Natur der Katzen, Katzen fühlen sich nicht unterdrückt, wenn sie auf die Toilette gehen, geeignet für Katzen von 1,5kg bis 8kg.17,4cm niedriger Eingang Design ist sehr freundlich zu alten Katzen, Kätzchen und Katzen mit Mobilitätsproblemen.【Die ultimative Katzensicherheitslösung】 Das patentierte Design der integrierten Struktur der Katzentoilette und des Abfalleimers verringert das Risiko des Einklemmens der Katze auf 0%. Das All-in-One-Abfallentsorgungssystem ersetzt die traditionelle Sammelmethode mit Schubladen, bei der die Gefahr des Einklemmens von Katzen besteht.",
+"image": "/product_img/11.jpeg",
+"createdAt": "2022-10-02T14:43:29.000Z",
+"updatedAt": "2022-10-02T14:43:29.000Z",
+"categoryId": 2
+},
+{
+"id": 12,
+"title": "Ultra Cat Litter Tray Self-Cleaning",
+"price": 600,
+"discont_price": 450,
+"description": "Pet safety certification: the TÜV Rheinland ten-layer safety protection system is equipped with infrared sensors, weight sensors, remote alarm, overload protection and 9 self-test functions. This self-cleaning bin ensures safe and comfortable use of the litter tray. Every pet is our baby. Automatic cleaning solution: this self-cleaning cat litter box uses fully automatic cleaning to save time for the user. Release your hands and spend more time with your beloved pet. In automatic cleaning mode, the cleaning time can be set to 1 to 30 minutes after the pet uses the toilet.",
+"image": "/product_img/12.jpeg",
+"createdAt": "2022-10-02T14:43:29.000Z",
+"updatedAt": "2022-10-02T14:43:29.000Z",
+"categoryId": 2
+},
+{
+"id": 13,
+"title": "Bedsure Washable Dog Basket Medium Dogs",
+"price": 31,
+"discont_price": null,
+"description": "COMFORTABLE ERGONOMIC DESIGN The Bedsure rectangular dog bed provides excellent comfort and support with raised sides for neck and headrest, ensuring a restful sleep for pets. The bed features a mix of crushed foam and polyester fiber filling in a 2:1 ratio that provides both support and comfort for dogs of all sizes. QUALITY MATERIALS FOR ALL SEASONS - Crafted from high quality faux linen, this dog cushion is suitable for year-round use and keeps furry friends cool during hot summers.",
+"image": "/product_img/13.jpeg",
+"createdAt": "2022-10-02T14:43:29.000Z",
+"updatedAt": "2022-10-02T14:43:29.000Z",
+"categoryId": 3
+},
+{
+"id": 14,
+"title": "Bedsure Orthopaedic Dog Bed, Ergonomic Dog Sofa",
+"price": 42,
+"discont_price": null,
+"description": "Dog bed for large dogs is made of flannel blend fabric that ensures a durable and soft lying comfort. Orthopaedic dog bed with egg shaped foam always returns to its original shape and adapts perfectly to the pet's body. High edge on 3 sides and non-slip coating of the dog sofa give your pet a sense of security. Washable cover with zip and waterproof inner layer for the foam protects the dog bed XL from dirt",
+"image": "/product_img/14.jpeg",
+"createdAt": "2022-10-02T14:43:29.000Z",
+"updatedAt": "2022-10-02T14:43:29.000Z",
+"categoryId": 3
+},
+{
+"id": 15,
+"title": "Black Dog Bed, Large Dogs",
+"price": 150,
+"discont_price": 50,
+"description": "✨Washable cover: The Belune dog bed can be easily cleaned at 40 degrees. Alternatively, you can also simply clean the bed with a vacuum cleaner. 🌱100% vegan faux fur: we love animals just like you! Therefore, our dog bed is made from 100% vegan faux fur that not only looks luxurious, but is also environmentally and animal friendly. ☁️ COMFORTABLE CUSHION EDGE The raised edge provides your dog or cat with the perfect place to rest their head and relax. No more hanging heads!",
+"image": "/product_img/15.jpeg",
+"createdAt": "2022-10-02T14:43:29.000Z",
+"updatedAt": "2022-10-02T14:43:29.000Z",
+"categoryId": 3
+},
+{
+"id": 16,
+"title": "Cat Toy with Real Random Trajectory",
+"price": 50,
+"discont_price": 25,
+"description": "The first automatic cat laser toy with real random trajectory: the built-in dual motor moves the laser point randomly and stimulates your pet's hunting instinct to keep it busy. Motion detection: When the intelligent sensor detects your pet's movement, the Petiepaw cat laser toy is automatically activated and works for 15 minutes before it turns off. The sensor can only be activated every 2 hours and has a working distance of 0-4 m",
+"image": "/product_img/16.jpeg",
+"createdAt": "2022-10-02T14:43:29.000Z",
+"updatedAt": "2022-10-02T14:43:29.000Z",
+"categoryId": 4
+},
+{
+"id": 17,
+"title": "Acecy Dog Toy, Chew Toy Dog Almost Indestructible",
+"price": 15,
+"discont_price": null,
+"description": "Squeaky This toy has a sounding function, when the dog bites the toy, it makes a sound to attract the dog's attention, improve the dog's interest in playing, and can also clean the dog's teeth. Dog chew toy: this toy is 14.5 cm long x 6.4 cm wide x 8.3 cm high. This dog toy has been tested by Siberian Huskys, Border Collie, German Shepherds, Labradors, Golden Retrievers, Shiba Inu, Pitbulls and many other aggressive chewers.",
+"image": "/product_img/17.jpeg",
+"createdAt": "2022-10-02T14:43:29.000Z",
+"updatedAt": "2022-10-02T14:43:29.000Z",
+"categoryId": 4
+},
+{
+"id": 18,
+"title": "Ballistol Animal 28-Piece Towel - Multi-Colour",
+"price": 13,
+"discont_price": null,
+"description": "Ballistol Animal consists of proven natural ingredients and medically pure white oil. Because of its composition, Ballistol Animal is ideal for wound treatment and as a universal care oil. Ballistol Animal has proven itself for over 50 years and is well tolerated by your pet",
+"image": "/product_img/18.jpeg",
+"createdAt": "2022-10-02T14:43:29.000Z",
+"updatedAt": "2022-10-02T14:43:29.000Z",
+"categoryId": 5
+},
+{
+"id": 19,
+"title": "Pet Brush for Short Hair",
+"price": 20,
+"discont_price": null,
+"description": "Easy to clean: cat brush, our pet brush separates animal hair with a single pressure, the hair can be easily removed and can be rinsed with water after use. Many uses: animal hair removal comb with no matter whether your pet hair is long, curly or even knotted hair, our dog hair brush can handle it. Pet hair brush can be used frequently for dogs, cats or rabbits. Comfortable non-slip handle: cat hair brush, the non-slip handle has an oval shape for a comfortable grip and easy control. Very labour-saving when combing, you do not have to worry about pain in the wrist after prolonged use and help you and your pet have more comfort",
+"image": "/product_img/19.jpeg",
+"createdAt": "2022-10-02T14:43:29.000Z",
+"updatedAt": "2022-10-02T14:43:29.000Z",
+"categoryId": 5
+},
+{
+"id": 20,
+"title": "ivvi Skin & Coat Omega 3 for Dogs Against Itching in Treat Format",
+"price": 29,
+"discont_price": null,
+"description": "ivvi 's Skin & Coat has been specially developed with veterinarians to optimally support your dog's skin and coat. For skin problems and allergies, as a remedy against itching for dogs and for gentle, shiny coat and shiny hair. High concentration of powerful active ingredients: salmon oil, DHAgold, vitamin C & E, zinc and vitamin B (biotin for dogs). Full declaration of ingredients and active ingredient concentration = 100% transparency",
+"image": "/product_img/20.jpeg",
+"createdAt": "2022-10-02T14:43:29.000Z",
+"updatedAt": "2022-10-02T14:43:29.000Z",
+"categoryId": 6
+},
+{
+"id": 21,
+"title": "Ida Plus Darmbiotic",
+"price": 25,
+"discont_price": null,
+"description": "Active bacteria – The contained bacterial strain \"Bacillus velezensis\" is robust, so that a large amount of probiotic actively reaches the intestine, while other probiotics are destroyed by stomach acid - contains 333 billion CFU / kg. With prebotics – Mannan oligosaccharides as prebiotics promote the growth of healthy bacteria",
+"image": "/product_img/21.jpeg",
+"createdAt": "2022-10-02T14:43:29.000Z",
+"updatedAt": "2022-10-02T14:43:29.000Z",
+"categoryId": 6
+},
+{
+"id": 22,
+"title": "Foldable Exercise Pet Playpen",
+"price": 41,
+"discont_price": null,
+"description": "The playpen consists of 8 interconnected panels (61 x 76 cm each) to provide a running surface of 1.5 m2; the play pen is ideal for medium dogs up to 20 inches in size. The portable playpen is great for indoor and outdoor use: a black rust proof E coating protects the dog playpen from the elements and it includes ground stakes to anchor it into the ground",
+"image": "/product_img/22.jpeg",
+"createdAt": "2022-10-02T14:43:29.000Z",
+"updatedAt": "2022-10-02T14:43:29.000Z",
+"categoryId": 7
+},
+{
+"id": 23,
+"title": "Puppy Run with 4 Panels and Lockable Door",
+"price": 39,
+"discont_price": null,
+"description": "Box contents: 1 playpen, enclosure with 4 panels and 1 lockable plastic door. Material: recycled polypropylene and rubber. Parking dimensions: W 91.5 x D 91.5 x H 60 cm, each plate: W 91.5 x D 2 x H 60 cm, main entrance: LB0 x H 47.5 cm, item weight: 4.8 kg. Capacity: ideal for small to medium dogs or other pets weighing less than 12 kg, the play pen is designed to provide plenty of space and quick access for your pets",
+"image": "/product_img/23.jpeg",
+"createdAt": "2022-10-02T14:43:29.000Z",
+"updatedAt": "2022-10-02T14:43:29.000Z",
+"categoryId": 7
+},
+{
+"id": 24,
+"title": "ESTEXO Cat Scratching Post Scratching",
+"price": 44,
+"discont_price": 30,
+"description": "Cat scratching post for cats to play and relax. With a scratching board and a hiding place. Sturdy wooden base board; material: chipboard, sisal, plush. Dimensions (W x D x H): approx. 40 x 30 x 40.5 cm; post diameter: approx. 75 mm",
+"image": "/product_img/24.jpeg",
+"createdAt": "2022-10-02T14:43:29.000Z",
+"updatedAt": "2022-10-02T14:43:29.000Z",
+"categoryId": 8
+},
+{
+"id": 25,
+"title": "Cat Scratching Post Cat Tree",
+"price": 39,
+"discont_price": null,
+"description": "Cat scratching post, climbing post, with lying surfaces, caves, etc. Ladder for comfortable climbing; sturdy wooden base plate; includes cat toy. Material: chipboard, cardboard, sisal, polyester; number of sleeping surfaces: 3; number of caves: 2",
+"image": "/product_img/25.jpeg",
+"createdAt": "2022-10-02T14:43:29.000Z",
+"updatedAt": "2022-10-02T14:43:29.000Z",
+"categoryId": 8
+}
+]
+}

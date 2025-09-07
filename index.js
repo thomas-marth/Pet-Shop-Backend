@@ -64,6 +64,17 @@ app.get('/', (_, res) => {
   });
 });
 
+// Health-check маршрут для проверки деплоя
+app.get('/health', (req, res) => {
+  res.json({ ok: true, ts: Date.now() });
+});
+
+// глобальный обработчик ошибок
+app.use((err, req, res, next) => {
+  console.error('[ERROR]', err);
+  res.status(500).json({ ok: false, error: err?.message || 'Server error' });
+});
+
 // Локальный запуск (dev). В проде (Vercel) ПОРТ НЕ СЛУШАЕМ!
 if (process.env.NODE_ENV !== 'production') {
   const PORT = process.env.PORT || 3333;

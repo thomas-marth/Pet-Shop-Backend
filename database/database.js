@@ -1,18 +1,30 @@
 const { Sequelize } = require('sequelize');
 
-// Для Vercel — файл в /tmp (живёт в рамках инстанса) или :memory:
-const storage = process.env.SQLITE_PATH
-  || (process.env.VERCEL ? '/tmp/database.sqlite' : 'database.sqlite');
+const isProd = !!process.env.VERCEL;
+const pooledUrl = process.env.DATABASE_URL || process.env.POSTGRES_URL;
 
-console.log('[DB] storage =', storage);
+let sequelize;
 
-const sequelize = new Sequelize({
-  dialect: 'sqlite',
-  storage,
-  logging: false
-});
+if (isProd) {
+  // Vercel/Neon: pooled URL + SSL
+  sequelize = new Sequelize(pooledUrl, {
+    dialect: 'postgres',
+    protocol: 'postgres',
+    dialectOptions: { ssl: { require: true, rejectUnauthorized: false } },
+    pool: { max: 5, min: 0, idle: 10000, acquire: 30000 },
+    logging: false
+  });
+} else {
+  // Локально оставляем SQLite
+  sequelize = new Sequelize({
+    dialect: 'sqlite',
+    storage: 'database.sqlite',
+    logging: false
+  });
+}
 
 module.exports = sequelize;
+
 
 
 

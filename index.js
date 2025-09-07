@@ -1,3 +1,6 @@
+// Подскажем бандлеру Vercel включить драйверы Postgres
+try { require('pg'); require('pg-hstore'); } catch (_) {}
+
 const express = require('express');
 
 let sequelize; // будет создан при первом обращении

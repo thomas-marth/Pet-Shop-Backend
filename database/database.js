@@ -4,6 +4,10 @@ const { Sequelize } = require('sequelize');
 const isProd = !!process.env.VERCEL;
 const pooledUrl = process.env.DATABASE_URL || process.env.POSTGRES_URL; // pooled URL от Vercel/Neon
 
+if (isProd && !pooledUrl) {
+  console.error('[ENV] No DATABASE_URL/POSTGRES_URL set');
+}
+
 let sequelize;
 
 if (isProd) {

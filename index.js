@@ -15,6 +15,12 @@ Category.hasMany(Product);
 
 const app = express();
 
+console.log('[BOOT]', {
+  vercel: !!process.env.VERCEL,
+  nodeEnv: process.env.NODE_ENV
+});
+
+
 // --- middleware до роутов ---
 app.use(cors({ origin: '*' }));
 app.use(express.json());

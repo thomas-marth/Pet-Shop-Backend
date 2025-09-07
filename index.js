@@ -67,6 +67,24 @@ app.get('/health', (req, res) => {
   res.json({ ok: true, ts: Date.now() });
 });
 
+// Быстрый дебаг БД: проверяем драйвер и коннект
+app.get('/_debug', async (req, res, next) => {
+  try {
+    const { Sequelize } = require('sequelize');
+    const sequelize = require('./database/database');
+
+    await sequelize.authenticate(); // проверка наличия драйвера + коннекта
+    res.json({ ok: true, message: 'Sequelize authenticate() passed' });
+  } catch (err) {
+    console.error('[DEBUG_DB_ERROR]', err);
+    res.status(500).json({
+      ok: false,
+      name: err.name,
+      message: err.message
+    });
+  }
+});
+
 // Глобальный обработчик ошибок (важно для serverless)
 app.use((err, req, res, next) => {
   console.error('[ERROR]', err);

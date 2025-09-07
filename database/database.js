@@ -1,6 +1,6 @@
 const { Sequelize } = require('sequelize');
 
-// На Vercel файловая система read-only. Используем /tmp (или :memory:)
+// Для Vercel — файл в /tmp (живёт в рамках инстанса) или :memory:
 const storage = process.env.SQLITE_PATH
   || (process.env.VERCEL ? '/tmp/database.sqlite' : 'database.sqlite');
 
@@ -13,5 +13,6 @@ const sequelize = new Sequelize({
 });
 
 module.exports = sequelize;
+
 
 

@@ -50,6 +50,22 @@ app.get('/', (_, res) => {
 });
 app.get('/health', (req, res) => res.json({ ok: true, ts: Date.now() }));
 
+// Проверка подключения к БД и диалекта
+app.get('/_db', async (req, res) => {
+  try {
+    const sequelize = require('./database/database');
+    await sequelize.authenticate(); // проверяем строку подключения и SSL
+    res.json({
+      ok: true,
+      dialect: sequelize.getDialect(),
+      env: process.env.VERCEL ? 'vercel' : 'local'
+    });
+  } catch (err) {
+    console.error('[DB_AUTH_ERROR]', err);
+    res.status(500).json({ ok: false, name: err.name, message: err.message });
+  }
+});
+
 // глобальный обработчик ошибок (чтобы 500 были в JSON и в логах)
 app.use((err, req, res, next) => {
   console.error('[ERROR]', err);

@@ -52,7 +52,6 @@ function initModelsOnce() {
     Product  = require('./database/models/product');
     Category.hasMany(Product, { foreignKey: 'categoryId' });
     Product.belongsTo(Category, { foreignKey: 'categoryId' });
-    console.log('[MODELS_READY]', Object.keys(sequelize.models));
   }
 }
 

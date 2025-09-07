@@ -3,23 +3,14 @@ const Product = require('../database/models/product');
 
 const router = express.Router();
 
-// GET /products/all
 router.get('/all', async (req, res, next) => {
-  try {
-    const rows = await Product.findAll();
-    res.json(rows);
-  } catch (err) {
-    next(err);
-  }
+  try { res.json(await Product.findAll()); } catch (e) { next(e); }
 });
 
-// (временный) GET добавление — если очень нужно, держи ВЫШЕ /:id
 router.get('/add/:title/:price/:discont_price/:description', async (req, res, next) => {
   try {
     const { title, price, discont_price, description } = req.params;
-    if (!title || isNaN(price)) {
-      return res.status(400).json({ status: 'ERR', message: 'Неверные параметры' });
-    }
+    if (!title || isNaN(price)) return res.status(400).json({ status: 'ERR', message: 'Неверные параметры' });
     const item = await Product.create({
       title,
       price: Number(price),
@@ -28,20 +19,14 @@ router.get('/add/:title/:price/:discont_price/:description', async (req, res, ne
       categoryId: 1
     });
     res.json({ status: 'OK', data: item });
-  } catch (err) {
-    next(err);
-  }
+  } catch (e) { next(e); }
 });
 
-// Рекомендуемый способ добавления — POST /products
 router.post('/', async (req, res, next) => {
   try {
     const { title, price, discont_price, description, categoryId } = req.body;
-
-    if (!title || price == null || !Number.isFinite(Number(price))) {
+    if (!title || price == null || !Number.isFinite(Number(price)))
       return res.status(400).json({ status: 'ERR', message: 'title и числовой price обязательны' });
-    }
-
     const item = await Product.create({
       title,
       price: Number(price),
@@ -49,31 +34,20 @@ router.post('/', async (req, res, next) => {
       description: description || '',
       categoryId: categoryId != null ? Number(categoryId) : null
     });
-
     res.status(201).json({ status: 'OK', data: item });
-  } catch (err) {
-    next(err);
-  }
+  } catch (e) { next(e); }
 });
 
-// GET /products/:id — ниже, чтобы не перехватывать /add/...
 router.get('/:id', async (req, res, next) => {
   try {
     const id = Number(req.params.id);
-    if (!Number.isFinite(id)) {
-      return res.status(400).json({ status: 'ERR', message: 'wrong id' });
-    }
-
+    if (!Number.isFinite(id)) return res.status(400).json({ status: 'ERR', message: 'wrong id' });
     const row = await Product.findOne({ where: { id } });
-    if (!row) {
-      return res.status(404).json({ status: 'ERR', message: 'product not found' });
-    }
-
+    if (!row) return res.status(404).json({ status: 'ERR', message: 'product not found' });
     res.json(row);
-  } catch (err) {
-    next(err);
-  }
+  } catch (e) { next(e); }
 });
 
 module.exports = router;
+
 

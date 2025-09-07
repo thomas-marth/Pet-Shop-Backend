@@ -1,44 +1,81 @@
-const { request } = require('express');
 const express = require('express');
 const Product = require('../database/models/product');
 
 const router = express.Router();
 
+// GET /products/all
+router.get('/all', async (req, res, next) => {
+  try {
+    const rows = await Product.findAll();
+    res.json(rows);
+  } catch (err) {
+    next(err);
+  }
+});
 
+/**
+ * Рекомендуемый способ добавления товара — POST /products
+ * Тело запроса (JSON): { title, price, discont_price, description, categoryId }
+ */
+router.post('/', async (req, res, next) => {
+  try {
+    const { title, price, discont_price, description, categoryId } = req.body;
 
-router.get('/all', (req, res) =>{
-    
-    async function all(){
-        const all = await Product.findAll();
-        console.log(all);
-        res.json(all);
+    if (!title || price == null || !Number.isFinite(Number(price))) {
+      return res.status(400).json({ status: 'ERR', message: 'title и числовой price обязательны' });
     }
-    all();
-})
 
+    const item = await Product.create({
+      title,
+      price: Number(price),
+      discont_price: discont_price != null ? Number(discont_price) : null,
+      description: description || '',
+      categoryId: categoryId != null ? Number(categoryId) : null
+    });
 
-router.get('/:id', async (req, res) =>{
-    const {id} = req.params;
+    res.status(201).json({ status: 'OK', data: item });
+  } catch (err) {
+    next(err);
+  }
+});
 
-    if (isNaN(id)){
-        res.json({status: 'ERR', message: 'wrong id'}); 
-        return  
+router.get('/add/:title/:price/:discont_price/:description', async (req, res, next) => {
+  try {
+    const { title, price, discont_price, description } = req.params;
+    if (!title || isNaN(price)) {
+      return res.status(400).json({ status: 'ERR', message: 'Неверные параметры' });
     }
-    const all = await Product.findAll({where: {id: +id}});
+    const item = await Product.create({
+      title,
+      price: Number(price),
+      discont_price: isNaN(discont_price) ? null : Number(discont_price),
+      description: description || '',
+      categoryId: 1
+    });
+    res.json({ status: 'OK', data: item });
+  } catch (err) {
+    next(err);
+  }
+});
 
-    if(all.length === 0){
-        res.json({status: 'ERR', message: 'product not found'});
-        return
+// GET /products/:id — ниже, чтобы не перехватывать /add/...
+router.get('/:id', async (req, res, next) => {
+  try {
+    const id = Number(req.params.id);
+    if (!Number.isFinite(id)) {
+      return res.status(400).json({ status: 'ERR', message: 'wrong id' });
     }
-    
-    res.json(all);
-})
 
+    const rows = await Product.findAll({ where: { id } });
+    if (rows.length === 0) {
+      return res.status(404).json({ status: 'ERR', message: 'product not found' });
+    }
 
-router.get('/add/:title/:price/:discont_price/:description', (req, res) =>{
-    const {title, price, discont_price, description} = req.params;
-    Product.create({title, price, discont_price, description, categoryId: 1});
-    res.json(`добавлено`);
-})
+    res.json(rows[0]);
+  } catch (err) {
+    next(err);
+  }
+});
 
 module.exports = router;
+

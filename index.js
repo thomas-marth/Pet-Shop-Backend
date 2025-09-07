@@ -28,8 +28,7 @@ Product.belongsTo(Category, { foreignKey: 'categoryId' });
 let dbInitPromise;
 function ensureDb() {
   if (!dbInitPromise) {
-    const syncOpts = process.env.VERCEL ? { force: true } : {};
-    dbInitPromise = sequelize.sync(syncOpts);
+    dbInitPromise = sequelize.sync(); // без force в проде
   }
   return dbInitPromise;
 }

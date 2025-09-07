@@ -11,7 +11,9 @@ const Category = require('./database/models/category');
 const Product = require('./database/models/product');
 
 // Связи
-Category.hasMany(Product);
+Category.hasMany(Product, { foreignKey: 'categoryId' });
+Product.belongsTo(Category, { foreignKey: 'categoryId' });
+
 
 const app = express();
 

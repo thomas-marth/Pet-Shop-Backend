@@ -24,8 +24,18 @@ app.use('/products', products);
 app.use('/sale', sale);
 app.use('/order', order);
 
-
-
+app.get('/', (_, res) => {
+  res.json({
+    ok: true,
+    routes: [
+      '/categories/all',
+      '/products/all',
+      '/products/:id',
+      '/order/send',
+      '/sale/send'
+    ]
+  });
+});
 
 app.use(express.json());
 

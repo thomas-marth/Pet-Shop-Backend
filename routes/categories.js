@@ -30,7 +30,6 @@ router.get('/:id', async (req, res, next) => {
     if (!category) {
       return res.status(404).json({ status: 'ERR', message: 'category not found' });
     }
-
     if (items.length === 0) {
       return res.status(404).json({ status: 'ERR', message: 'empty category' });
     }
@@ -42,3 +41,4 @@ router.get('/:id', async (req, res, next) => {
 });
 
 module.exports = router;
+
